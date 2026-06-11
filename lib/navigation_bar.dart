@@ -71,7 +71,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
         builder: (context, _) => CustomPaint(
           painter: NavBarPainter(_bulgeAnimation.value),
           child: Padding(
-            padding: const EdgeInsets.only(top: 24),
+            padding: const EdgeInsets.only(top: 28),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'navigation_bar.dart';
+import 'parchment_card.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,11 +27,21 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('Tea Grimoire'),
+      backgroundColor: Color(0xFF151210),
+      body: Column(
+        children: [
+          const Expanded(
+            child: Center(
+              child: ParchmentCard(
+                title: 'Discover Tome Secrets',
+                body:
+                    'Discover the celestial staves, and nature and mysteries.',
+              ),
+            ),
+          ),
+          const CustomNavigationBar(),
+        ],
       ),
-      body: Column(children: [const Spacer(), CustomNavigationBar()]),
     );
   }
 }
