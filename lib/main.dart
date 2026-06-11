@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'navigation_bar.dart';
+import 'package:tea_grimoire/core/widgets/custom_app_bar.dart';
+import 'core/widgets/custom_nav_bar.dart';
 import 'parchment_card.dart';
 
 void main() {
@@ -27,6 +28,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppBar(title: 'Tea Grimoire'),
       backgroundColor: Color(0xFF151210),
       body: Column(
         children: [
@@ -39,7 +41,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
-          const CustomNavigationBar(),
+          const CustomNavBar(),
         ],
       ),
     );

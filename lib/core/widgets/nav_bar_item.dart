@@ -1,12 +1,12 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
-class NavBarIcon extends StatelessWidget {
+class NavBarItem extends StatelessWidget {
   final String assetName;
   final bool isSelected;
   final void Function() onTap;
 
-  const NavBarIcon({
+  const NavBarItem({
     super.key,
     required this.assetName,
     required this.onTap,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tea_grimoire/parchment_divider.dart';
 
 class ParchmentCard extends StatelessWidget {
   final String title;
@@ -51,7 +52,7 @@ class ParchmentCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              const _ParchmentDivider(),
+              const ParchmentDivider(),
               const SizedBox(height: 10),
               Text(
                 body,
@@ -67,31 +68,6 @@ class ParchmentCard extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _ParchmentDivider extends StatelessWidget {
-  const _ParchmentDivider();
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Expanded(
-          child: Divider(color: Color(0xFF4A2C0A), thickness: 0.8),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6),
-          child: Text(
-            '✦',
-            style: TextStyle(color: const Color(0xFF3D2208), fontSize: 8),
-          ),
-        ),
-        const Expanded(
-          child: Divider(color: Color(0xFF4A2C0A), thickness: 0.8),
-        ),
-      ],
     );
   }
 }

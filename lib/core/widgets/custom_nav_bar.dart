@@ -1,15 +1,15 @@
 import 'package:flutter/widgets.dart';
-import 'package:tea_grimoire/nav_bar_icon.dart';
-import 'package:tea_grimoire/nav_bar_painter.dart';
+import 'package:tea_grimoire/core/widgets/nav_bar_item.dart';
+import 'package:tea_grimoire/core/widgets/nav_bar_painter.dart';
 
-class CustomNavigationBar extends StatefulWidget {
-  const CustomNavigationBar({super.key});
+class CustomNavBar extends StatefulWidget {
+  const CustomNavBar({super.key});
 
   @override
-  State<CustomNavigationBar> createState() => _CustomNavigationBarState();
+  State<CustomNavBar> createState() => _CustomNavBarState();
 }
 
-class _CustomNavigationBarState extends State<CustomNavigationBar>
+class _CustomNavBarState extends State<CustomNavBar>
     with SingleTickerProviderStateMixin {
   int _selectedIndex = 1;
   final List<GlobalKey> _iconKeys = List.generate(3, (_) => GlobalKey());
@@ -63,31 +63,33 @@ class _CustomNavigationBarState extends State<CustomNavigationBar>
 
   @override
   Widget build(BuildContext context) {
+    final bottomPadding = MediaQuery.of(context).padding.bottom;
+
     return SizedBox(
       key: _barKey,
-      height: 90,
+      height: 90 + bottomPadding,
       child: AnimatedBuilder(
         animation: _bulgeAnimation,
         builder: (context, _) => CustomPaint(
           painter: NavBarPainter(_bulgeAnimation.value),
           child: Padding(
-            padding: const EdgeInsets.only(top: 28),
+            padding: const EdgeInsets.only(top: 28, bottom: 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                NavBarIcon(
+                NavBarItem(
                   key: _iconKeys[0],
                   assetName: 'assets/icons/quill.svg',
                   isSelected: _selectedIndex == 0,
                   onTap: () => _updateBulgePosition(0),
                 ),
-                NavBarIcon(
+                NavBarItem(
                   key: _iconKeys[1],
                   assetName: 'assets/icons/tome.svg',
                   isSelected: _selectedIndex == 1,
                   onTap: () => _updateBulgePosition(1),
                 ),
-                NavBarIcon(
+                NavBarItem(
                   key: _iconKeys[2],
                   assetName: 'assets/icons/profile.svg',
                   isSelected: _selectedIndex == 2,
